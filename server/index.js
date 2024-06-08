@@ -29,12 +29,12 @@ const swaggerDocs = swaggerJsdoc(swaggerOptions);
 server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 // Credenciais do banco de dados
-const DB_USER = 'brunoalgter';
-const DB_PASSWORD = encodeURIComponent('Bruno123filedetilapia');
+const DB_USER = 'IgoROweN';
+const DB_PASSWORD = encodeURIComponent('SenhaMongoDB1');
 
 // Conexão com o MongoDB
 mongoose.connect(
-    `mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0.ar4lb8g.mongodb.net/`
+    `mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0.c2drv4s.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
 )
     .then(() => {
         console.log('Conectado ao MongoDB!');
