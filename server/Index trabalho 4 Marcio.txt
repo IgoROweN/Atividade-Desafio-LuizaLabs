@@ -1,0 +1,80 @@
+// const express = require('express');
+// const server = express(); // Criando uma instância do Express
+// server.use(express.json());
+
+// const cursos = ['Node JS', 'JavaScript', 'PHP', 'React', 'VueJS'];
+
+// // Middleware para verificar se existe um Request Body em PUT
+// function checkRequestBodyPut(req, res, next) {
+//     if (!req.body.curso) {
+//         return res.status(400).json({ error: "O corpo da requisição deve conter um curso" });
+//     }
+//     return next();
+// }
+
+// // Middleware para verificar se existe um Request Body em POST
+// function checkRequestBodyPost(req, res, next) {
+//     if (!req.body.novo_curso) {
+//         return res.status(400).json({ error: "O corpo da requisição deve conter um novo curso" });
+//     }
+//     return next();
+// }
+
+// // Middleware para lidar com mensagem de erro no DELETE
+// function handleDeleteError(req, res, next) {
+//     if (!cursos[req.params.index]) {
+//         return res.status(404).json({ error: "Curso não encontrado" });
+//     }
+//     return next();
+// }
+
+// // Middleware para mostrar no console a lista de cursos atualizada após inserção
+// function logCursoInserido(req, res, next) {
+//     console.log("Lista de cursos atualizada:", cursos);
+//     return next();
+// }
+
+// // Middleware para mostrar no console a lista de cursos atualizada após deleção
+// function logCursoDeletado(req, res, next) {
+//     console.log("Lista de cursos atualizada:", cursos);
+//     return next();
+// }
+
+// server.use((req, res, next) => {
+//     console.log(`URL CHAMADA: ${req.url}`);
+//     return next();
+// });
+
+// server.get('/curso', (req, res) => {
+//     return res.json(cursos);
+// });
+
+// server.get('/curso/:index', (req, res) => {
+//     const { index } = req.params;
+//     return res.json(cursos[index]);
+// });
+
+// server.post('/curso', checkRequestBodyPost, logCursoInserido, (req, res) => {
+//     const { novo_curso } = req.body;
+//     cursos.push(novo_curso);
+//     return res.json(cursos);
+// });
+
+// server.put('/curso/:index', checkRequestBodyPut, (req, res) => {
+//     const { index } = req.params;
+//     const { curso } = req.body;
+//     cursos[index] = curso;
+//     return res.json(cursos);
+// });
+
+// server.delete('/curso/:index', handleDeleteError, (req, res) => {
+//     const { index } = req.params;
+//     cursos.splice(index, 1);
+//     logCursoDeletado();
+//     return res.json({ message: "Curso deletado com sucesso" });
+// });
+
+// // Iniciando o servidor
+// server.listen(3000, () => {
+//     console.log('Servidor está rodando na porta 3000');
+// });
